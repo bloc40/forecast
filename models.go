@@ -13,93 +13,60 @@ type Data struct {
 }
 
 type currentlyData struct {
-	Time                 int     `json:"time"`
-	Summary              string  `json:"summary"`
-	Icon                 string  `json:"icon"`
-	NearestStormDistance int     `json:"nearestStormDistance"`
-	NearestStormBearing  int     `json:"nearestStormBearing"`
-	PrecipIntensity      int     `json:"precipIntensity"`
-	PrecipProbability    int     `json:"precipProbability"`
-	Temperature          float64 `json:"temperature"`
-	ApparentTemperature  float64 `json:"apparentTemperature"`
-	DewPoint             float64 `json:"dewPoint"`
-	Humidity             float64 `json:"humidity"`
-	WindSpeed            float64 `json:"windSpeed"`
-	WindBearing          int     `json:"windBearing"`
-	Visibility           float64 `json:"visibility"`
-	CloudCover           float64 `json:"cloudCover"`
-	Pressure             float64 `json:"pressure"`
-	Ozone                float64 `json:"ozone"`
+	Time    int    `json:"time"`
+	Summary string `json:"summary"`
+	Icon    string `json:"icon"`
+	commonData
 }
 
 type minutelyData struct {
 	Summary string       `json:"summary"`
 	Icon    string       `json:"icon"`
-	Data    []minuteData `json:"data"`
-}
-
-type minuteData struct {
-	Time              int `json:"time"`
-	PrecipIntensity   int `json:"precipIntensity"`
-	PrecipProbability int `json:"precipProbability"`
+	Data    []commonData `json:"data"`
 }
 
 type hourlyData struct {
-	Summary string     `json:"summary"`
-	Icon    string     `json:"icon"`
-	Data    []hourData `json:"data"`
-}
-
-type hourData struct {
-	Time                int     `json:"time"`
-	Summary             string  `json:"summary"`
-	Icon                string  `json:"icon"`
-	Temperature         float64 `json:"temperature"`
-	DewPoint            float64 `json:"dewPoint"`
-	Humidity            float64 `json:"humidity"`
-	WindSpeed           float64 `json:"windSpeed"`
-	PrecipIntensity     int     `json:"precipIntensity"`
-	PrecipProbability   int     `json:"precipProbability"`
-	ApparentTemperature float64 `json:"apparentTemperature"`
-	WindBearing         int     `json:"windBearing"`
-	Visibility          float64 `json:"visibility"`
-	CloudCover          float64 `json:"cloudCover"`
-	Pressure            float64 `json:"pressure"`
-	Ozone               float64 `json:"ozone"`
+	Summary string       `json:"summary"`
+	Icon    string       `json:"icon"`
+	Data    []commonData `json:"data"`
 }
 
 type dailyData struct {
-	Summary string    `json:"summary"`
-	Icon    string    `json:"icon"`
-	Data    []dayData `json:"data"`
+	Summary string       `json:"summary"`
+	Icon    string       `json:"icon"`
+	Data    []commonData `json:"data"`
 }
 
-type dayData struct {
-	Time                       int     `json:"time"`
-	Summary                    string  `json:"summary"`
+type commonData struct {
+	ApparentTemperature        float64 `json:"apparentTemperature"`
+	ApparentTemperatureMax     float64 `json:"apparentTemperatureMax"`
+	ApparentTemperatureMaxTime int     `json:"apparentTemperatureMaxTime"`
+	ApparentTemperatureMin     float64 `json:"apparentTemperatureMin"`
+	ApparentTemperatureMinTime int     `json:"apparentTemperatureMinTime"`
+	CloudCover                 float64 `json:"cloudCover"`
+	DewPoint                   float64 `json:"dewPoint"`
+	Humidity                   float64 `json:"humidity"`
 	Icon                       string  `json:"icon"`
-	SunriseTime                int     `json:"sunsetTime"`
-	SunsetTime                 int     `json:"sunsetTime"`
 	MoonPhase                  float64 `json:"moonPhase"`
+	NearestStormBearing        int     `json:"nearestStormBearing"`
+	NearestStormDistance       int     `json:"nearestStormDistance"`
+	Ozone                      float64 `json:"ozone"`
 	PrecipIntensity            float64 `json:"precipIntensity"`
 	PrecipIntensityMax         float64 `json:"precipIntensityMax"`
 	PrecipProbability          float64 `json:"precipProbability"`
-	TemperatureMin             float64 `json:"temperatureMin"`
-	TemperatureMinTime         int     `json:"temperatureMinTime"`
+	Pressure                   float64 `json:"pressure"`
+	Summary                    string  `json:"summary"`
+	SunriseTime                int     `json:"sunriseTime"`
+	SunsetTime                 int     `json:"sunsetTime"`
+	Temperature                float64 `json:"temperature"`
 	TemperatureMax             float64 `json:"temperatureMax"`
 	TemperatureMaxTime         int     `json:"temperatureMaxTime"`
-	ApparentTemperatureMin     float64 `json:"apparentTemperatureMin"`
-	ApparentTemperatureMinTime int     `json:"apparentTemperatureMinTime"`
-	ApparentTemperatureMax     float64 `json:"apparentTemperatureMax"`
-	ApparentTemperatureMaxTime int     `json:"apparentTemperatureMaxTime"`
-	DewPoint                   float64 `json:"dewPoint"`
-	Humidity                   float64 `json:"humidity"`
-	WindSpeed                  float64 `json:"windSpeed"`
-	WindBearing                int     `json:"windBearing"`
+	TemperatureMin             float64 `json:"temperatureMin"`
+	TemperatureMinTime         int     `json:"temperatureMinTime"`
+	Time                       int     `json:"time"`
 	Visibility                 float64 `json:"visibility"`
-	CloudCover                 float64 `json:"cloudCover"`
-	Pressure                   float64 `json:"pressure"`
-	Ozone                      float64 `json:"ozone"`
+	WindBearing                int     `json:"windBearing"`
+	WindSpeed                  float64 `json:"windSpeed"`
 }
 
 type flagsData struct {

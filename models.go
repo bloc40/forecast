@@ -6,9 +6,9 @@ type Data struct {
 	Timezone  string        `json:"timezone"`
 	Offset    int           `json:"offset"`
 	Currently currentlyData `json:"currently"`
-	Minutely  minutelyData  `json:"minutely"`
-	Hourly    hourlyData    `json:"hourly"`
-	Daily     dailyData     `json:"daily"`
+	Minutely  blockData     `json:"minutely"`
+	Hourly    blockData     `json:"hourly"`
+	Daily     blockData     `json:"daily"`
 	Flags     flagsData     `json:"flags"`
 }
 
@@ -19,19 +19,7 @@ type currentlyData struct {
 	commonData
 }
 
-type minutelyData struct {
-	Summary string       `json:"summary"`
-	Icon    string       `json:"icon"`
-	Data    []commonData `json:"data"`
-}
-
-type hourlyData struct {
-	Summary string       `json:"summary"`
-	Icon    string       `json:"icon"`
-	Data    []commonData `json:"data"`
-}
-
-type dailyData struct {
+type blockData struct {
 	Summary string       `json:"summary"`
 	Icon    string       `json:"icon"`
 	Data    []commonData `json:"data"`
